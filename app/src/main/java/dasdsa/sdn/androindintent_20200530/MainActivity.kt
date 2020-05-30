@@ -36,5 +36,14 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+        smsBtn.setOnClickListener {
+            val inputPhoneNum = phoneNumEdt.text.toString()
+
+            val myUri = Uri.parse("smsto:${inputPhoneNum}")
+            val myIntent = Intent(Intent.ACTION_SENDTO, myUri)
+            myIntent.putExtra("sms_body", "[광고] 이 앱을 공유해주세요")
+            startActivity(myIntent)
+        }
+
     }
 }
